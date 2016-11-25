@@ -38,6 +38,33 @@ def add_car(request):
     return render(request, 'add_car.html', context)
 
 
+def change_car(request, pk):
+    try:
+        car = Cars.objects.get(pk=pk)
+    except:
+        return HttpResponseNotFound()
+
+    initial_data = {
+        'make': car.make,
+        'model': car.model,
+        'year': car.year,
+        'description': car.description,
+    }
+    form = AddCarForm(instance=car, initial=initial_data)
+
+    if request.method == 'POST':
+        form = AddCarForm(request.POST, request.FILES, instance=car)
+        if form.is_valid():
+            form.save()
+
+    context = {
+        'form': form,
+        'car': car
+    }
+
+    return render(request, 'update_car.html', context)
+
+
 def delete_car(request, pk):
     confirm = request.GET.get('confirm')
     try:
