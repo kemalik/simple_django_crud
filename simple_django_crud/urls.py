@@ -3,12 +3,13 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
-from applications.crud.views import index, car_detail
+from applications.crud.views import index, car_detail, add_car
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
     url(r'^car/(?P<pk>\d+)/$', car_detail, name='car_detail'),
+    url(r'^add_car/$', add_car, name='add_car'),
 ]
 
 
