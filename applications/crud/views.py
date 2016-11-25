@@ -1,6 +1,10 @@
 from django.shortcuts import render
+from applications.crud.models import Cars
 
-# Create your views here.
 
 def index(request):
-    return render(request, 'index.html', {})
+    cars = Cars.objects.all()
+    context = {
+        'cars': cars
+    }
+    return render(request, 'index.html', context)
