@@ -8,3 +8,14 @@ def index(request):
         'cars': cars
     }
     return render(request, 'index.html', context)
+
+def car_detail(request, pk):
+    try:
+        car = Cars.objects.get(pk=pk)
+    except:
+        car = None
+
+    context = {
+        'car': car
+    }
+    return render(request, 'car_details.html', context)

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ car.make }} {{ car.model }}{% endblock %}
+
+{% block content %}
+    <style>
+    .title {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .image {
+        width: 500px;
+    }
+
+    .description {
+        width: 900px;
+    }
+    </style>
+
+    <h3 align="center">{{ car.make }} {{ car.model }}</h3>
+
+        <ul style="display: inline;list-style: none;">
+            <li>
+                <div class="title">Марка:</div>
+                <div>{{ car.make }}</div>
+            </li>
+            <li>
+                <div class="title">Модель:</div>
+                <div>{{ car.model }}</div>
+            </li>
+            <li>
+                <div class="title">Год выпуска:</div>
+                <div>{{ car.year }}</div>
+            </li>
+            <li>
+                <div class="title">Описание:</div>
+                <div class="description">{{ car.description }}</div>
+            </li>
+            <li>
+                <div class="title">Картинка:</div>
+                <div><img src="{{ car.image.url }}" alt="" class="image"></div>
+            </li>
+
+        </ul>
+        </ul>
+{% endblock %}

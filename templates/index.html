@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <h3>Машины</h3>
     <table border="1" cellpadding="5" cellspacing="2" width="600">
     <tbody>
         <tr>
@@ -12,7 +13,7 @@
         {% for car in cars %}
         <tr>
             <td>{{ car.id }}</td>
-            <td><a href="">{{ car.make }}</a></td>
+            <td><a href="{% url 'car_detail' car.id %}">{{ car.make }}</a></td>
             <td>{{ car.model }}</td>
             <td>{{ car.year }}</td>
         </tr>

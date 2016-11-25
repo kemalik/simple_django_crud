@@ -5,7 +5,12 @@
     <title>{% block title %}Машины{% endblock %}</title>
 </head>
 <body>
+<ul>
+    <li><a href="{% url 'index' %}">Главная</a></li>
+</ul>
+<div style="margin-left: 100px;">
 {% block content %}
 {% endblock %}
+</div>
 </body>
 </html>
